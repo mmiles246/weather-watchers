@@ -1,12 +1,18 @@
-import NavBar from "./Navbar";
+import { Routes, Route } from "react-router-dom";
+import Home from "./components/Home";
+import NavBar from "./components/Navbar";
+
 
 function UnauthenticatedApp () {
 
     return(
-        <div className="unauthed-app-primary">
-            <NavBar />
-
-        </div>
+        <>
+        <NavBar />
+        <Routes>
+            <Route path='/' element={<Home />}>
+            </Route>
+        </Routes>
+        </>
     )
 
 }
