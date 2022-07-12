@@ -5,3 +5,7 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+location1 = Location.create(city: 'city', state: 'state', zipcode: 'zip')
+
+user1 = User.create(username: 'user1', password_digest: 'test', location_id: location1.id)
