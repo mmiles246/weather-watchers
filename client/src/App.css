@@ -12,9 +12,12 @@
 .nav-container {
   background-color: #F1F2EE;
   height: 60px;
+  width: 100%;
   display: flex;
+  position: fixed;
   justify-content: start;
   align-items: center;
+  z-index: 2;
 }
 
 .menu-bars {
@@ -157,4 +160,26 @@
 
 .search-icon {
   border: solid 1px;
+}
+
+/* ////////////////////////////////////////////////////////*/
+/* FeedPage */
+/* ////////////////////////////////////////////////////////*/
+
+.feed-container {
+  height: 100vh;
+  /* background-color: #EFF9F0; */
+  background-color: #698F3F;
+  width: 100%;
+  text-align: center;
+}
+
+.feed-header {
+  width: 100%;
+  /* margin: 20px 0 80px 0; */
+  padding: 20px 0 80px 0;
+}
+
+.image-feed{
+  flex: 1 1 auto;
 }
