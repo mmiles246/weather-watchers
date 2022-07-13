@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react'
 
-function HomePageBanner ({setLat, setLng, currentPosition, triggerLocation, getLocation, locate}) { //temprarily hoisting info during development
+function HomePageBanner ({currentCondition, triggerLocation, getLocation, locate}) { 
     const [iconNum, setIconNum] = useState()
 
     function localIcon (iconNum) {
@@ -36,9 +36,9 @@ function HomePageBanner ({setLat, setLng, currentPosition, triggerLocation, getL
                 <div className="temp-widget">
                     <div className="temp-widget-icon">
                         <i class={ !locate ? "fa-solid fa-3x fa-location-arrow" : localIcon(iconNum)} onClick={triggerLocation}></i>  
-                        {/* <i class="fa-solid fa-3x fa-temperature-half" onClick={getLocation}></i> */}
                     </div>
                     <div className="local-temp">
+                        Temp Here
                     </div>
                 </div>
                 <div className="events-widget">

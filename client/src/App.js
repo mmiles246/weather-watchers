@@ -57,8 +57,7 @@ function App() {
       currentUser ? <AuthenticatedApp /> 
       : 
       <UnauthenticatedApp 
-      setLat={setLat}
-      setLng={setLng} 
+      userLocationKey={userLocationKey}
       currentConditions={currentConditions} 
       getLocation={getLocation} 
       triggerLocation ={triggerLocation}

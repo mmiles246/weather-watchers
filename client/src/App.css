@@ -10,7 +10,8 @@
 } */
 
 .nav-container {
-  background-color: #F1F2EE;
+  /* background-color: #F1F2EE; */
+  background-color: ;
   height: 60px;
   width: 100%;
   display: flex;
@@ -42,6 +43,7 @@
 .nav-menu-active {
   width: 250px;
   height: 100vh;
+  min-height: 500px;
   display: flex;
   top: 0;
   position: fixed;
@@ -49,6 +51,7 @@
   transition: 350ms;
   background-color: #F1F2EE;
   z-index: 1;
+  overflow: scroll;
 }
 
 .nav-text{
@@ -73,6 +76,34 @@
 }
 
 .nav-text a:hover {
+  background-color: #1a83ff;
+}
+
+.nav-text-signup{
+  display: flex;
+  justify-content: baseline;
+  align-items: center;
+  padding: 8px 0 8px 16px;
+  list-style: none;
+  height: 60px;
+  /* right: 0; */
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+}
+
+.nav-text-signup a{
+  text-decoration: none;
+  font-size: 20px;
+  width: 95%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  border-radius: 4px;
+}
+
+.nav-text-signup a:hover {
   background-color: #1a83ff;
 }
 
@@ -117,6 +148,10 @@
 /* ////////////////////////////////////////////////////////*/
 .home-banner {
   background-color: #0F110C;
+  background-image: url('./components/imgs/mangrove.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
   width: 100%;
   height: 360px;
   align-items: center;
@@ -163,13 +198,26 @@
 }
 
 /* ////////////////////////////////////////////////////////*/
+/* RadarBanner */
+/* ////////////////////////////////////////////////////////*/
+
+.radar-banner{
+
+}
+
+.radar-container {
+  
+}
+
+/* ////////////////////////////////////////////////////////*/
 /* FeedPage */
 /* ////////////////////////////////////////////////////////*/
 
 .feed-container {
   height: 100vh;
   /* background-color: #EFF9F0; */
-  background-color: #698F3F;
+  /* background-color: #698F3F; */
+  background-color: #CFEBDF;
   width: 100%;
   text-align: center;
 }

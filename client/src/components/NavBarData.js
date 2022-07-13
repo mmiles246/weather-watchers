@@ -17,5 +17,11 @@ export const NavBarData = [
         path: '/',
         icon: <i class="fa-solid fa-clock"></i>,
         cName: 'nav-text'
+    }, 
+    {
+        label: 'Signup',
+        path: '/',
+        icon: <i class="fa-solid fa-user"></i>,
+        cName: 'nav-text-signup'
     }
 ]

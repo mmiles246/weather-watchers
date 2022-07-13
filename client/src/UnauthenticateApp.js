@@ -3,13 +3,13 @@ import Home from "./components/Home";
 import NavBar from "./components/Navbar";
 
 
-function UnauthenticatedApp ({setLat, setLng, currentConditions, triggerLocation, getLocation, locate}) {
+function UnauthenticatedApp ({setLat, setLng, userLocationKey, currentConditions, triggerLocation, getLocation, locate}) {
 
     return(
         <>
         <NavBar />
         <Routes>
-            <Route path='/' element={<Home setLat={setLat} setLng={setLng} currentConditions={currentConditions} getLocation={getLocation} triggerLocation={triggerLocation} locate={locate} />}>
+            <Route path='/' element={<Home userLocationKey={userLocationKey} currentConditions={currentConditions} getLocation={getLocation} triggerLocation={triggerLocation} locate={locate} />}>
             </Route>
         </Routes>
         </>
