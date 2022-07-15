@@ -1,8 +1,10 @@
 import {useState, useEffect} from 'react'
+import EventsWidget from './EventsWidget'
 
-function HomePageBanner ({currentCondition, triggerLocation, getLocation, locate}) { 
-    const [iconNum, setIconNum] = useState()
-
+function HomePageBanner ({currentConditions, userLocationName, userState, triggerLocation, locate, iconNum}) { 
+    // const [iconNum, setIconNum] = useState()
+    
+    console.log(currentConditions)
     function localIcon (iconNum) {
         if (iconNum <= 2 ) {
             return 'fa-solid fa-2x fa-sun'
@@ -29,20 +31,24 @@ function HomePageBanner ({currentCondition, triggerLocation, getLocation, locate
         }
     }
 
-
     return (
         <>
             <div className="home-banner">
                 <div className="temp-widget">
+                    {/* <div className='temp-widget-location'> */}
+                        {userLocationName ? <span>{userLocationName}</span> : <></>}
+                    {/* </div> */}
                     <div className="temp-widget-icon">
                         <i class={ !locate ? "fa-solid fa-3x fa-location-arrow" : localIcon(iconNum)} onClick={triggerLocation}></i>  
                     </div>
                     <div className="local-temp">
-                        Temp Here
+                        {iconNum ? <span>{currentConditions.Temperature.Imperial.Value}</span> : <></>}
+                        {/* <span>{currentConditions.Temperature.Imperial.Value}</span> */}
                     </div>
+                    
                 </div>
                 <div className="events-widget">
-                    Weather Events will post here!
+                    <EventsWidget userState={userState} />
                 </div>
             </div>
         </>

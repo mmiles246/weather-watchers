@@ -20,7 +20,7 @@ export const NavBarData = [
     }, 
     {
         label: 'Signup',
-        path: '/',
+        path: '/signup',
         icon: <i class="fa-solid fa-user"></i>,
         cName: 'nav-text-signup'
     }

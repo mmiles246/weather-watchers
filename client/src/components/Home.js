@@ -1,16 +1,15 @@
 import FeedPage from "./FeedPage";
 import HomePageBanner from "./HomePageBanner";
-import RadarBanner from "./RadarBanner";
 
-function Home ({setLat, setLng, userLocationKey, currentConditions, triggerLocation, getLocation, locate}) {
+
+function Home ({userLocationKey, userLocationName, userState, currentConditions, triggerLocation, locate, iconNum}) {
 
     return (
         <>
             <div className="home--primary">
                 <div className="header-banner">
-                        <HomePageBanner  currentConditions={currentConditions} getLocation={getLocation} triggerLocation={triggerLocation} locate={locate}/>
-                        <RadarBanner userLocationKey={userLocationKey} />
-                        <FeedPage />
+                        <HomePageBanner  currentConditions={currentConditions} userLocationName={userLocationName} userState={userState} triggerLocation={triggerLocation} locate={locate} iconNum={iconNum}/>
+                        <FeedPage userLocationName={userLocationName} />
                 </div>
             </div>
         </>
