@@ -8,15 +8,12 @@ import UnauthenticatedApp from './UnauthenticateApp';
 function App() {
   const [currentUser, setCurrentUser] = useState(false)     //future implementation of user account creation feature.
   const [authCheck, setAuthCheck] = useState(false)         //future implementation of user account creation feature.
+  const [userPostalCodeSearch, setUserPostalCodeSearch] = useState(null)    //holds search for postal code      
   const [userLocationKey, setUserLocationKey] = useState(null)  //possibly no longer needed, TBD.
-  const [userLocationName, setUserLocatioName] = useState("")   //string with the name of users location
+  const [userLocationName, setUserLocatioName] = useState(null)   //string with the name of users location
   const [userState, setUserState] = useState('')
-  const [dailyForcast, setDailyForcast] = useState({})          //holds object contains users location forcast.
-  const [localTemps, setLocalTemps] = useState({})              //probably going to replace with variables.
   const [currentConditions, setCurrentConditions] = useState({})  //holds object containing users locations current conditions.
   const [iconNum, setIconNum] = useState()
-  // const [lat, setLat] = useState(null)                         //users lat  
-  // const [lng, setLng] = useState(null)                         //users long
   const [lat, setLat] = useState(sessionStorage.getItem('lat'))
   const [lng, setLng] = useState(sessionStorage.getItem('lng'))
   const [status, setStatus] = useState(null)                   //geolocater status
@@ -26,8 +23,6 @@ function App() {
     setLocate(true);
     getLocation();
 }
-
-
 
   function getLocation () {
     if (!navigator.geolocation) {
@@ -58,6 +53,7 @@ function App() {
       })
       .then(res => res.json())
       .then(res =>  {
+        console.log(res[0])
          setCurrentConditions(res[0])
          setIconNum(res[0].WeatherIcon)
       })
@@ -72,9 +68,10 @@ function App() {
       userLocationKey={userLocationKey}
       userLocationName={userLocationName}
       userState={userState}
-      currentConditions={currentConditions} 
-      getLocation={getLocation} 
+      currentConditions={currentConditions}
       triggerLocation ={triggerLocation}
+      setLat={setLat}
+      setLng={setLng}
       locate={locate}
       iconNum={iconNum}
       />
@@ -84,4 +81,3 @@ function App() {
 }
 
 export default App;
-  

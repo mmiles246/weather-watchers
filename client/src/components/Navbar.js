@@ -3,7 +3,7 @@ import { useState } from 'react';
 import SearchBar from './Searchbar';
 import { NavBarData } from './NavBarData';
 
-function NavBar () {
+function NavBar ({setLat, setLng}) {
     const [clicked, setClicked] = useState(false)
 
     function showNavBar () {
@@ -15,7 +15,7 @@ function NavBar () {
             <Link to='/' className='nav-logo'>
                 Weather Watchers <i class="fa-solid fa-2x fa-cloud"></i>
             </Link>
-            <SearchBar />
+            <SearchBar placeholder='search by zipcode' setLat={setLat} setLng={setLng} />
             <Link to='/' className='nav-icon'>
                 <i class="fa-solid fa-2x fa-bars" onClick={showNavBar}></i>
             </Link>

@@ -160,7 +160,11 @@
   display: flex;
 }
 
-.temp-widget {
+/* ////////////////////////////////////////////////////////*/
+/* CurrentConditionsWidget */
+/* ////////////////////////////////////////////////////////*/
+
+.temp-widget-container {
   color: #F1F2EE;
   width: 25%;
   height: 160px;
@@ -170,11 +174,76 @@
   display: flex;
   background-color: #67AAF9;
   margin: 30px 200px 30px 60px;
+  overflow: scroll;
 }
+
+.temp-widget-container::-webkit-scrollbar {
+  display: none;
+}
+
+.toggle {
+  margin-bottom: 10px;
+  
+}
+
+.temp-widget-deets {
+  align-items: center;
+}
+
+/* .temp-widget {
+  align-items: center;
+} */
+
 
 .local-temp {
   font-size: 45px;
 }
+
+/* ////////////////////////////////////////////////////////*/
+/* WidgetToggle */
+/* ////////////////////////////////////////////////////////*/
+/* 
+.toggle-switch{
+  display: flex;
+  position: relative;
+} */
+
+/* ////////////////////////////////////////////////////////*/
+/* HourlyForcastWidget */
+/* ////////////////////////////////////////////////////////*/
+
+.hourly-forcast-widget {
+  color: #F1F2EE;
+  width: 25%;
+  height: 160px;
+  vertical-align: middle;
+  display: flex;
+  background-color: #67AAF9;
+  margin: 30px 200px 30px 60px;
+  overflow-x: scroll;
+  justify-content: center;
+}
+
+.hourly-forcast-widget::-webkit-scrollbar {
+  display: none;
+}
+
+.hourly-forcast-card {
+  width: 100%;
+}
+
+.hour-forcast{
+  border: 1px solid;
+  justify-content: space-between;
+  padding: 0px;
+  margin: 0;
+}
+
+
+
+/* ////////////////////////////////////////////////////////*/
+/* EventsWidget */
+/* ////////////////////////////////////////////////////////*/
 
 .events-widget {
   color: #F1F2EE;

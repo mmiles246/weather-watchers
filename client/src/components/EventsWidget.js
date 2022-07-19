@@ -1,15 +1,17 @@
 import { useState, useEffect} from 'react'
 
-function EventsWidget ({userState}) {
+function EventsWidget ({userState, currentConditions}) {
     const [alertArray, setAlertArray] = useState([])
     const [actualAlerts, setActualAlerts] = useState([])
 
     useEffect(() => {
-        fetch(`https://api.weather.gov/alerts?message_type=alert&area=${userState}`)
-        .then(res => res.json())
-        .then(res => {
-            setAlertArray(res.features)
-        })
+        if (userState) {
+            fetch(`https://api.weather.gov/alerts?active=truemessage_type=alert&area=${userState}`)
+            .then(res => res.json())
+            .then(res => {
+                setAlertArray(res.features)
+                
+        })}
     }, [])
 
         for (alert of alertArray) {
@@ -17,8 +19,7 @@ function EventsWidget ({userState}) {
             actualAlerts.push(alertD)
         }
 
-
-    console.log(alertArray)
+    console.log(actualAlerts)
 
     return(
         <>

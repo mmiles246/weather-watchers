@@ -1,8 +1,12 @@
 import {useState, useEffect} from 'react'
+import CurrentConditionsWidget from './CurrentConditionsWidget'
 import EventsWidget from './EventsWidget'
+import HourlyForcastWidget from './HourlyForcastWidget'
+import iconRender from '../hooks/iconRender'
 
-function HomePageBanner ({currentConditions, userLocationName, userState, triggerLocation, locate, iconNum}) { 
+function HomePageBanner ({currentConditions, userLocationName, userLocationKey, userState, triggerLocation, locate, iconNum}) { 
     // const [iconNum, setIconNum] = useState()
+    const [widgetToggle, setWidgetToggle] = useState(false)
     
     console.log(currentConditions)
     function localIcon (iconNum) {
@@ -24,29 +28,34 @@ function HomePageBanner ({currentConditions, userLocationName, userState, trigge
             return 'fa-solid fa-2x fa-wind'
         } else if (iconNum === 33 || iconNum === 34) {
             return 'fa-solid fa-2x fa-moon'
-        } else if (iconNum ==35 || iconNum === 36) {
+        } else if (iconNum === 35 || iconNum === 36) {
             return 'fa-solid fa-2x fa-cloud-moon'
         } else if (iconNum === 39) {
             return 'fa-solid fa-2x fa-cloud-moon-rain'
         }
     }
 
+    iconRender(iconNum, 'fa-2x')
+
     return (
         <>
+       
             <div className="home-banner">
-                <div className="temp-widget">
-                    {/* <div className='temp-widget-location'> */}
-                        {userLocationName ? <span>{userLocationName}</span> : <></>}
-                    {/* </div> */}
-                    <div className="temp-widget-icon">
-                        <i class={ !locate ? "fa-solid fa-3x fa-location-arrow" : localIcon(iconNum)} onClick={triggerLocation}></i>  
-                    </div>
-                    <div className="local-temp">
-                        {iconNum ? <span>{currentConditions.Temperature.Imperial.Value}</span> : <></>}
-                        {/* <span>{currentConditions.Temperature.Imperial.Value}</span> */}
-                    </div>
-                    
-                </div>
+                {!widgetToggle ? (<CurrentConditionsWidget
+                currentConditions={currentConditions} 
+                userLocationName={userLocationName} 
+                iconNum={iconNum} 
+                localIcon={localIcon} 
+                triggerLocation={triggerLocation} 
+                widgetToggle={widgetToggle}
+                setWidgetToggle={setWidgetToggle}
+                />) : 
+                (<HourlyForcastWidget 
+                userLocationKey={userLocationKey}
+                localIcon={localIcon}
+                iconNum={iconNum}
+                />)
+                }
                 <div className="events-widget">
                     <EventsWidget userState={userState} />
                 </div>

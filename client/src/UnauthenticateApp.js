@@ -4,21 +4,21 @@ import NavBar from "./components/Navbar";
 import Signup from "./components/Signup";
 
 
-function UnauthenticatedApp ({userLocationKey, userLocationName, userState, currentConditions, triggerLocation, locate, iconNum}) {
+function UnauthenticatedApp ({userLocationKey, userLocationName, userState, setLat, setLng, currentConditions, triggerLocation, locate, iconNum}) {
 
     return(
         <>
-        <NavBar />
+        <NavBar setLat={setLat} setLng={setLng} />
         <Routes>
             <Route path='/' element={
             <Home 
             userLocationKey={userLocationKey}
             userLocationName={userLocationName}
             userState={userState} 
-            currentConditions={currentConditions} 
+            currentConditions={currentConditions}
             triggerLocation={triggerLocation} 
             locate={locate} 
-            iconNum={iconNum} 
+            iconNum={iconNum}
             />
             }>
                 <Route path='signup' element={<Signup />} />
